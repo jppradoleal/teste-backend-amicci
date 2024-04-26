@@ -10,6 +10,8 @@ packages = [{include = "teste_backend_amicci"}]
 python = "^3.10"
 django = "^5.0.4"
 djangorestframework = "^3.15.1"
+gunicorn = "^22.0.0"
+uvicorn = {extras = ["standard"], version = "^0.29.0"}
 
 
 [build-system]
