@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+    env_file:
+      - ./.env
+    volumes:
+      - .:/app
+    ports:
+      - 8000:8000
+  db:
+    image: postgres:16.2
+    volumes:
+      - ./data/postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=amicci
+      - POSTGRES_DB=amicci
+      - POSTGRES_PASSWORD=amicci
