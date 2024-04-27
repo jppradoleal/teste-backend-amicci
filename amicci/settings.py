@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'core',
+    'dj_rest_auth',
 ]
 
 MIDDLEWARE = [
@@ -148,3 +149,7 @@ REST_FRAMEWORK = {
 }
 
 AUTH_USER_MODEL='core.User'
+
+REST_AUTH = {
+    'USE_JWT': True,
+}
