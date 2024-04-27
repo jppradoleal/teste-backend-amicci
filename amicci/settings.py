@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     "vendors",
     "retailers",
+    "briefings"
 ]
 
 MIDDLEWARE = [
