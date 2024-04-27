@@ -151,5 +151,6 @@ REST_FRAMEWORK = {
 AUTH_USER_MODEL='core.User'
 
 REST_AUTH = {
+    'LOGIN_SERIALIZER': 'core.serializers.CustomLoginSerializer',
     'USE_JWT': True,
 }
