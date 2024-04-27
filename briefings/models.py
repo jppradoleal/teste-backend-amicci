@@ -11,10 +11,11 @@ class Category(models.Model):
     def __str__(self) -> str:
         return self.name
 
+
 class Briefing(models.Model):
     name = models.CharField(max_length=255)
-    retailer = models.ForeignKey('retailers.Retailer', on_delete=models.RESTRICT)
-    responsible = models.ForeignKey('vendors.Vendor', on_delete=models.RESTRICT)
+    retailer = models.ForeignKey("retailers.Retailer", on_delete=models.RESTRICT)
+    responsible = models.ForeignKey("vendors.Vendor", on_delete=models.RESTRICT)
     category = models.ForeignKey(Category, on_delete=models.RESTRICT)
     release_date = models.DateTimeField()
     available = models.BooleanField()
