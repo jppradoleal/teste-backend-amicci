@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from briefings import models
+
+
+admin.site.register(models.Category)
+admin.site.register(models.Briefing)
