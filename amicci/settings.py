@@ -49,7 +49,8 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'dj_rest_auth',
-    'dj_rest_auth.registration'
+    'dj_rest_auth.registration',
+    'vendors'
 ]
 
 MIDDLEWARE = [
