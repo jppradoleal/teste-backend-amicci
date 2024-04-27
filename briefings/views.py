@@ -1,3 +1,14 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from briefings import models
+from briefings.serializers import BriefingSerializer, CategorySerializer
+
+
+class CategoryViewSet(ModelViewSet):
+    queryset = models.Category.objects.all()
+    serializer_class = CategorySerializer
+
+
+class BriefingViewSet(ModelViewSet):
+    queryset = models.Briefing.objects.all()
+    serializer_class = BriefingSerializer
