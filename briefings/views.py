@@ -1,14 +1,13 @@
-from rest_framework.viewsets import ModelViewSet
-
 from briefings import models
 from briefings.serializers import BriefingSerializer, CategorySerializer
+from core.views import CreateListRetrieveUpdateViewSet
 
 
-class CategoryViewSet(ModelViewSet):
+class CategoryViewSet(CreateListRetrieveUpdateViewSet):
     queryset = models.Category.objects.all()
     serializer_class = CategorySerializer
 
 
-class BriefingViewSet(ModelViewSet):
+class BriefingViewSet(CreateListRetrieveUpdateViewSet):
     queryset = models.Briefing.objects.all()
     serializer_class = BriefingSerializer

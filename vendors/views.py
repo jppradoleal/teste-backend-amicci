@@ -1,9 +1,8 @@
-from rest_framework.viewsets import ModelViewSet
-
+from core.views import CreateListRetrieveUpdateViewSet
 from vendors import models
 from vendors.serializers import VendorSerializer
 
 
-class VendorViewSet(ModelViewSet):
+class VendorViewSet(CreateListRetrieveUpdateViewSet):
     queryset = models.Vendor.objects.all()
     serializer_class = VendorSerializer
