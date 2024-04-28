@@ -1,10 +1,9 @@
-from rest_framework.serializers import ModelSerializer
-
+from core.serializers import ModelSerializerWithOwner
 from vendors import models
 
 
-class VendorSerializer(ModelSerializer):
+class VendorSerializer(ModelSerializerWithOwner):
     class Meta:
         model = models.Vendor
-        fields = ["id", "name"]
-        read_only_fields = ["id"]
+        fields = ["id", "name", "owner"]
+        read_only_fields = ["id", "owner"]

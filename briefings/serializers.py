@@ -1,16 +1,15 @@
-from rest_framework.serializers import ModelSerializer
-
 from briefings import models
+from core.serializers import ModelSerializerWithOwner
 
 
-class CategorySerializer(ModelSerializer):
+class CategorySerializer(ModelSerializerWithOwner):
     class Meta:
         model = models.Category
-        fields = ["id", "name", "description"]
-        read_only_fields = ["id"]
+        fields = ["id", "name", "description", "owner"]
+        read_only_fields = ["id", "owner"]
 
 
-class BriefingSerializer(ModelSerializer):
+class BriefingSerializer(ModelSerializerWithOwner):
     class Meta:
         model = models.Briefing
         fields = [
@@ -21,6 +20,7 @@ class BriefingSerializer(ModelSerializer):
             "category",
             "release_date",
             "available",
+            "owner",
         ]
 
-        read_only_fields = ["id"]
+        read_only_fields = ["id", "owner"]

@@ -1,17 +1,18 @@
 from rest_framework import serializers
 
+from core.serializers import ModelSerializerWithOwner
 from retailers import models
 from vendors.models import Vendor
 from vendors.serializers import VendorSerializer
 
 
-class RetailerSerializer(serializers.ModelSerializer):
+class RetailerSerializer(ModelSerializerWithOwner):
     vendors = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Retailer
-        fields = ["id", "name", "vendors"]
-        read_only_fields = ["id", "vendors"]
+        fields = ["id", "name", "vendors", "owner"]
+        read_only_fields = ["id", "vendors", "owner"]
 
     def get_vendors(self, obj):
         briefings = obj.briefing_set.all()
