@@ -11,4 +11,4 @@ class CreateListRetrieveUpdateViewSet(mixins.CreateModelMixin,
     To use it, override the class and set the `.queryset` and
     `.serializer_class` attributes.
     """
-    pass
+    http_method_names = ["get", "post", "put"]
