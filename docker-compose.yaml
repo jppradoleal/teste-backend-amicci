@@ -9,7 +9,7 @@ services:
     ports:
       - 8000:8000
     environment:
-      - DATABASE_HOST=db
+      - DATABASE_HOST=postgres://amicci:amicci@db:5432/amicci
   db:
     image: postgres:16.2
     volumes:
