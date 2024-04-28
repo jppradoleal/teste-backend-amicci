@@ -4,14 +4,14 @@ from briefings import models
 
 
 class CategorySerializer(ModelSerializer):
-    class meta:
+    class Meta:
         model = models.Category
         fields = ["id", "name", "description"]
         read_only_fields = ["id"]
 
 
 class BriefingSerializer(ModelSerializer):
-    class meta:
+    class Meta:
         model = models.Briefing
         fields = [
             "id",
