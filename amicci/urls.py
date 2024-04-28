@@ -1,8 +1,10 @@
 from django.contrib import admin
 from django.urls import path, include
 from amicci.swagger import schema_view
+from dj_rest_auth.views import LoginView, LogoutView, UserDetailsView
+from dj_rest_auth.registration.views import RegisterView
 
-swagger_urlpatterns = [
+swagger_urls = [
     path(
         "swagger<format>/", schema_view.without_ui(cache_timeout=0), name="schema-json"
     ),
@@ -13,10 +15,15 @@ swagger_urlpatterns = [
     ),
 ]
 
-urlpatterns = swagger_urlpatterns + [
+auth_urls = [
+    path("auth/login/", LoginView.as_view(), name="user-login"),
+    path("auth/logout/", LogoutView.as_view(), name="user-logout"),
+    path("auth/register/", RegisterView.as_view(), name="user-register"),
+    path("auth/user/", UserDetailsView.as_view(), name="user-details"),
+]
+
+urlpatterns = swagger_urls + auth_urls + [
     path("admin/", admin.site.urls),
-    path("auth/", include("dj_rest_auth.urls")),
-    path("auth/registration", include("dj_rest_auth.registration.urls")),
     path("", include("vendors.urls")),
     path("", include("retailers.urls")),
     path("", include("briefings.urls")),
