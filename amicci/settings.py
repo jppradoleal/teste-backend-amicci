@@ -31,7 +31,9 @@ DEBUG = os.getenv("ENV") != "production"
 if DEBUG:
     dotenv.load_dotenv(BASE_DIR / ".env")
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'teste-backend-amicci.fly.dev'
+]
 
 
 # Application definition
