@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from rest_framework.exceptions import NotAuthenticated
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from dj_rest_auth.serializers import LoginSerializer
 
@@ -25,12 +24,5 @@ class CustomLoginSerializer(LoginSerializer):
 
 class ModelSerializerWithOwner(serializers.ModelSerializer):    
     def create(self, validated_data):
-        obj = super().create(validated_data)
-        request = self.context.get("request")
-
-        if not request and not hasattr(request, "user"):
-            raise NotAuthenticated()
-
-        obj.owner = request.user
-
-        return obj
+        validated_data["owner"] = self.context["request"].user
+        return super().create(validated_data)
