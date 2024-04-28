@@ -3,7 +3,7 @@ from rest_framework.routers import DefaultRouter
 from briefings.views import BriefingViewSet, CategoryViewSet
 
 router = DefaultRouter()
-router.register("briefings", BriefingViewSet)
-router.register("categories", CategoryViewSet)
+router.register("briefing", BriefingViewSet)
+router.register("category", CategoryViewSet)
 
 urlpatterns = router.urls
