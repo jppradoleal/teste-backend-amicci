@@ -8,9 +8,9 @@ from briefings.views import (
 )
 
 router = DefaultRouter()
-router.register("briefing", BriefingViewSet, basename='briefing')
-router.register("category", CategoryViewSet, basename='category')
-router.register("briefings", ListBriefingsViewSet, basename='briefings')
-router.register("categories", ListCategoriesViewSet, basename='categories')
+router.register("briefing", BriefingViewSet, basename="briefing")
+router.register("category", CategoryViewSet, basename="category")
+router.register("briefings", ListBriefingsViewSet, basename="briefings")
+router.register("categories", ListCategoriesViewSet, basename="categories")
 
 urlpatterns = router.urls

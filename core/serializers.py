@@ -1,6 +1,6 @@
-from rest_framework import serializers
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from dj_rest_auth.serializers import LoginSerializer
+from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 
 from core.models import User

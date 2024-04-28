@@ -9,29 +9,63 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ('retailers', '0001_initial'),
-        ('vendors', '0001_initial'),
+        ("retailers", "0001_initial"),
+        ("vendors", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('description', models.TextField(max_length=500)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("description", models.TextField(max_length=500)),
             ],
         ),
         migrations.CreateModel(
-            name='Briefing',
+            name="Briefing",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=255)),
-                ('release_date', models.DateTimeField()),
-                ('available', models.BooleanField()),
-                ('responsible', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='vendors.vendor')),
-                ('retailer', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='retailers.retailer')),
-                ('category', models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to='briefings.category')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=255)),
+                ("release_date", models.DateTimeField()),
+                ("available", models.BooleanField()),
+                (
+                    "responsible",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        to="vendors.vendor",
+                    ),
+                ),
+                (
+                    "retailer",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        to="retailers.retailer",
+                    ),
+                ),
+                (
+                    "category",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        to="briefings.category",
+                    ),
+                ),
             ],
         ),
     ]

@@ -1,8 +1,9 @@
-from django.contrib import admin
-from django.urls import path, include
-from amicci.swagger import schema_view
-from dj_rest_auth.views import LoginView, LogoutView, UserDetailsView
 from dj_rest_auth.registration.views import RegisterView
+from dj_rest_auth.views import LoginView, LogoutView, UserDetailsView
+from django.contrib import admin
+from django.urls import include, path
+
+from amicci.swagger import schema_view
 
 swagger_urls = [
     path(
@@ -22,9 +23,13 @@ auth_urls = [
     path("auth/user/", UserDetailsView.as_view(), name="user-details"),
 ]
 
-urlpatterns = swagger_urls + auth_urls + [
-    path("admin/", admin.site.urls),
-    path("", include("vendors.urls")),
-    path("", include("retailers.urls")),
-    path("", include("briefings.urls")),
-]
+urlpatterns = (
+    swagger_urls
+    + auth_urls
+    + [
+        path("admin/", admin.site.urls),
+        path("", include("vendors.urls")),
+        path("", include("retailers.urls")),
+        path("", include("briefings.urls")),
+    ]
+)
