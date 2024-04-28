@@ -9,5 +9,3 @@ while IFS= read -r fixture; do
     echo $fixture
     poetry run python -m manage loaddata seeds/$fixture
 done <<< "$fixtures"
-
-poetry run python -m manage collectstatic --noinput

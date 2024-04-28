@@ -23,4 +23,6 @@ COPY . /code
 
 EXPOSE 8000
 
+RUN poetry run python -m manage collectstatic --noinput
+
 CMD ["gunicorn", "--bind", ":8000", "--workers", "2", "-k", "uvicorn.workers.UvicornWorker", "amicci.asgi"]
