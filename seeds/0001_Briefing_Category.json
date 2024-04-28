@@ -1,0 +1,29 @@
+[
+    {
+        "model": "briefings.category",
+        "pk": 1,
+        "fields": {
+            "name": "Novo Produto",
+            "description": "Criação de um novo produto.",
+            "owner": null
+        }
+    },
+    {
+        "model": "briefings.category",
+        "pk": 2,
+        "fields": {
+            "name": "Troca de fornecedor",
+            "description": "Troca de um fornecedor existente por outro fornecedor.",
+            "owner": null
+        }
+    },
+    {
+        "model": "briefings.category",
+        "pk": 3,
+        "fields": {
+            "name": "Reformulação de Produto",
+            "description": "Reformulação de um produto existente.",
+            "owner": null
+        }
+    }
+]
