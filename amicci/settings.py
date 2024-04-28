@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     "dj_rest_auth.registration",
     "vendors",
     "retailers",
-    "briefings"
+    "briefings",
 ]
 
 MIDDLEWARE = [
@@ -145,14 +145,14 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES": [
-        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
+        "rest_framework.permissions.IsAuthenticatedOrReadOnly"
     ],
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
     ],
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
+        "dj_rest_auth.jwt_auth.JWTCookieAuthentication",
     ],
 }
 
@@ -162,6 +162,8 @@ REST_AUTH = {
     "LOGIN_SERIALIZER": "core.serializers.CustomLoginSerializer",
     "REGISTER_SERIALIZER": "core.serializers.CustomRegisterSerializer",
     "USE_JWT": True,
+    "JWT_AUTH_COOKIE": "amicci-auth",
+    "JWT_AUTH_REFRESH_COOKIE": "amicci-refresh-token",
 }
 
 SITE_ID = 1
