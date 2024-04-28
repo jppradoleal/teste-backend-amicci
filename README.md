@@ -1,6 +1,6 @@
 <img src="https://images.sympla.com.br/62f50b75e7404.png" alt="Amicci Logo"></img>
 
-# Amicci - Teste prático para Frontend Javascript React Developer
+# Amicci - Teste prático para BackEnd Developer.
 
 ## Acesse o site!
 
